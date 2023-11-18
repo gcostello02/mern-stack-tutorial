@@ -5,6 +5,12 @@ const express = require('express')
 // EXPRESS APP
 const app = express()
 
+// MIDDLEWARE
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+})
+
 // ROUTES
 app.get('/', (req, res) => {
     res.json({mssg: 'Welcome to the app'})
